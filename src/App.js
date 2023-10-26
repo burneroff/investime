@@ -6,9 +6,10 @@ import AttractionCardPagintation from './components/Attractions/AttractionCardPa
 import MapWithIcon from './components/Map/Map';
 import { YMaps } from 'react-yandex-maps';
 import CardPagination from './components/Shop/CardPagination/CardPagination';
-import WelcomePage from './components/WelcomePage/WelcomePage';
 import AuthenticationForm from './components/AutorizationComponent/AuthFormComp/AuthenticationForm';
 import AuthenticationPage from './components/AutorizationComponent/AuthPage/AuthPage';
+import ProfilePage from './components/Profile/ProfilePage';
+import WelcomePage from './components/WelcomePage/WelcomePage';
 
 function App() {
   return (
@@ -21,8 +22,10 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="/home" element={<YMaps><MapWithIcon /></YMaps>} />
         <Route path="/attractions" element={<AttractionCardPagintation />} />
+        <Route path="/shop" element={<AttractionCardPagintation />} />
         <Route path="/events" element={<CardPagination />} />
-        <Route index element={<Navigate to="/home" />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route index element={<Navigate to="/welcome" />} />
       </Route>
     </Routes>
   </BrowserRouter>

@@ -50,9 +50,9 @@ function NavbarMinimal() {
 
   return (
     <nav className={classes.navbar}>
-      <Center>
+      {/* <Center>
         <MantineLogo type="mark" size={30}/>
-      </Center>
+      </Center> */}
 
       <div className={classes.navbarMain}>
         <Stack justify="center" gap={0}>
@@ -61,7 +61,7 @@ function NavbarMinimal() {
       </div>
 
       <Stack justify="center" gap={0}>
-        <NavbarLink icon={IconLogout} label="Logout" />
+      <Link to={"/welcome"}><NavbarLink icon={IconLogout} label="Logout" /></Link>
       </Stack>
     </nav>
   );

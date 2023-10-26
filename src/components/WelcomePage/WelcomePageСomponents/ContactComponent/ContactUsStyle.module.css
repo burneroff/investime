@@ -1,9 +1,11 @@
 .wrapper {
-    min-height: 25rem; /* было 400px */
+    min-height: 25rem;
+     /* было 400px */
     background-image: linear-gradient(
       -60deg,
+      
       var(--mantine-color-blue-4) 0%,
-      var(--mantine-color-blue-7) 100%
+      var(--mantine-color-green-7) 100%
     );
     border-radius: 0.75rem; /* было 12px */
     padding: calc(2.5rem * 2.5); /* было calc(40px * 2.5) */
@@ -54,6 +56,15 @@
   }
   
   .control {
-    background-color: var(--mantine-color-blue-6);
+    background-color: var(--mantine-color-green-6);
+    position: relative;
+    top: calc(1vw + 10px);
+    display: flex;
+    margin-left: 10rem;
+    
+  }
+
+  .control:hover {
+    background-color: var(--mantine-color-green-8);
   }
   

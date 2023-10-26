@@ -17,7 +17,7 @@ import {
     rem,
     useMantineTheme,
   } from '@mantine/core';
-  import { MantineLogo } from '@mantine/ds';
+  import Mantinelogo from './Mantinelogo';
   import { useDisclosure } from '@mantine/hooks';
   import {
     IconNotification,
@@ -26,40 +26,32 @@ import {
     IconChartPie3,
     IconFingerprint,
     IconCoin,
+    IconMap,
     IconChevronDown,
   } from '@tabler/icons-react';
   import classes from './HeaderWelcomeStyle.module.css';
+import { Link } from 'react-router-dom';
   
   const mockdata = [
     {
       icon: IconCode,
-      title: 'Open source',
-      description: 'This Pokémon’s cry is very loud and distracting',
+      title: 'Удобство использования',
+      description: 'Мы поможем вам с выбором мероприятия, подскажем дату и место проведения, а также дадим в подарок баллы!',
     },
     {
       icon: IconCoin,
-      title: 'Free for everyone',
-      description: 'The fluid of Smeargle’s tail secretions changes',
+      title: 'Экономия',
+      description: 'Благодаря нашей системе баллов вы сможете сэкономить на посещении различных мероприятий.',
     },
     {
       icon: IconBook,
-      title: 'Documentation',
-      description: 'Yanma is capable of seeing 360 degrees without',
+      title: 'Информация',
+      description: 'На нашем сайте можно изучить основную информацию о мероприятиях и достопримечательностях.',
     },
     {
-      icon: IconFingerprint,
-      title: 'Security',
-      description: 'The shell’s rounded shape and the grooves on its.',
-    },
-    {
-      icon: IconChartPie3,
-      title: 'Analytics',
-      description: 'This Pokémon uses its flying ability to quickly chase',
-    },
-    {
-      icon: IconNotification,
-      title: 'Notifications',
-      description: 'Combusken battles with the intensely hot flames it spews',
+      icon: IconMap,
+      title: 'Карта',
+      description: 'Для удобства на сайте есть карта.'
     },
   ];
   
@@ -72,7 +64,7 @@ import {
       <UnstyledButton className={classes.subLink} key={item.title}>
         <Group wrap="nowrap" align="flex-start">
           <ThemeIcon size={34} variant="default" radius="md">
-            <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.blue[6]} />
+            <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.green [8]} />
           </ThemeIcon>
           <div>
             <Text size="sm" fw={500}>
@@ -90,22 +82,23 @@ import {
       <Box pb={120}>
         <header className={classes.header}>
           <Group justify="space-between" h="100%">
-            <MantineLogo size={30} />
+            <Mantinelogo size={30} />
   
             <Group h="100%" gap={0} visibleFrom="sm">
               <a href="#" className={classes.link}>
-                Home
+                Главная
               </a>
               <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
                 <HoverCard.Target>
                   <a href="#" className={classes.link}>
                     <Center inline>
                       <Box component="span" mr={5}>
-                        Features
+                        О нас
                       </Box>
                       <IconChevronDown
-                        style={{ width: rem(16), height: rem(16) }}
-                        color={theme.colors.blue[6]}
+                        style={{ width: rem(16), height: rem(16)}}
+                        className={classes.icon}
+                        
                       />
                     </Center>
                   </a>
@@ -113,10 +106,8 @@ import {
   
                 <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                   <Group justify="space-between" px="md">
-                    <Text fw={500}>Features</Text>
-                    <Anchor href="#" fz="xs">
-                      View all
-                    </Anchor>
+                    <Text fw={500}>О нас</Text>
+                    
                   </Group>
   
                   <Divider my="sm" />
@@ -129,28 +120,28 @@ import {
                     <Group justify="space-between">
                       <div>
                         <Text fw={500} fz="sm">
-                          Get started
+                          Начать
                         </Text>
                         <Text size="xs" c="dimmed">
-                          Their food sources have decreased, and their numbers
+                          Присоединитесь к нам и начните жить по-новому!
                         </Text>
                       </div>
-                      <Button variant="default">Get started</Button>
+                      <Link to={"/authentication"}><Button className={classes.button} variant="default">Начать</Button></Link>
                     </Group>
                   </div>
                 </HoverCard.Dropdown>
               </HoverCard>
               <a href="#" className={classes.link}>
-                Events
+                Мероприятия
               </a>
               <a href="#" className={classes.link}>
-                Attractions
+                Достопримечательности
               </a>
             </Group>
   
             <Group visibleFrom="sm">
-              <Button variant="default">Log in</Button>
-              <Button>Sign up</Button>
+              <Link to={"/authentication"}><Button className={classes.button} variant='default'>Войти</Button> </Link>
+              <Link to={"/authentication"}><Button className={classes.button2}>Зарегистрироваться</Button> </Link>
             </Group>
   
             <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -175,7 +166,7 @@ import {
             <UnstyledButton className={classes.link} onClick={toggleLinks}>
               <Center inline>
                 <Box component="span" mr={5}>
-                  Features
+                  О нас
                 </Box>
                 <IconChevronDown
                   style={{ width: rem(16), height: rem(16) }}
@@ -194,8 +185,8 @@ import {
             <Divider my="sm" />
   
             <Group justify="center" grow pb="xl" px="md">
-              <Button variant="default">Log in</Button>
-              <Button>Sign up</Button>
+              <Button variant="default">Войти</Button>
+              <Button>Зарегистрироваться</Button>
             </Group>
           </ScrollArea>
         </Drawer>

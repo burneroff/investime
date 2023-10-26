@@ -12,28 +12,20 @@ export default function Hero() {
 
       <div className={classes.inner}>
         <Title className={classes.title}>
-          Automated AI{' '}
+        Добро{' '}
           <Text component="span" className={classes.highlight} inherit>
-            code reviews
+          пожаловать на
           </Text>{' '}
-          for any stack
+          сайт Investime!
         </Title>
 
         <Container p={0} size={600}>
           <Text size="lg" c="dimmed" className={classes.description}>
-            Build more reliable software with AI companion. AI is also trained to detect lazy
-            developers who do nothing and just complain on Twitter.
+          Investime – приложение для повышения интереса к местным мероприятиям и достопримечательностям.
           </Text>
         </Container>
 
-        <div className={classes.controls}>
-          <Button className={classes.control} size="lg" variant="default" color="gray">
-            Book a demo
-          </Button>
-          <Button className={classes.control} size="lg">
-            Purchase a license
-          </Button>
-        </div>
+        
       </div>
     </Container>
   );

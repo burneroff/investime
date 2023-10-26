@@ -3,9 +3,9 @@ import classes from './StatsStyle.module.css';
 
 const data = [
   {
-    title: 'Page views',
+    title: 'Статистические данные',
     stats: '456,133',
-    description: '24% more than in the same month last year, 33% more that two years ago',
+    description: 'Тимлииииии имба',
   },
   {
     title: 'New users',

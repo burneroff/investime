@@ -19,7 +19,7 @@ export default function AttractionCard({ image, title, category }) {
           </Title>
         </div>
         <Button variant="white" color="dark">
-          Read this
+          Подробнее
         </Button>
       </Paper>
     );

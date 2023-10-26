@@ -14,6 +14,7 @@ import {
 } from '@mantine/core';
 import RumblerButton from '../RamblerButton';
 import SomethingButton from '../SomethingButton';
+import { Link } from 'react-router-dom';
 
 export default function AuthenticationForm(props) {
   const [type, toggle] = useToggle(['login', 'register']);
@@ -33,12 +34,11 @@ export default function AuthenticationForm(props) {
   return (
     <Paper radius="md" padding="xl" {...props}>
       <Text size="lg" weight={500}>
-        Welcome to Mantine, {type} with
+        Welcome to Investime, {type} with
       </Text>
 
       <Group grow style={{ marginTop: '10px', marginBottom: "10px" }}>
-        <RumblerButton radius="xl">Google</RumblerButton>
-        <SomethingButton radius="xl">Twitter</SomethingButton>
+        <RumblerButton radius="xl">Войти</RumblerButton>
       </Group>
 
       <Divider label="Or continue with email" labelPosition="center" margin="lg" />
@@ -90,9 +90,9 @@ export default function AuthenticationForm(props) {
               ? 'Already have an account? Login'
               : "Don't have an account? Register"}
           </Anchor>
-          <Button type="submit" radius="xl">
+          <Link to={"/home"}><Button type="submit" radius="xl">
             {upperFirst(type)}
-          </Button>
+          </Button></Link>
         </Group>
       </form>
     </Paper>
