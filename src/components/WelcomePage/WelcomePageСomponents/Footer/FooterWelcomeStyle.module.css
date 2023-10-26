@@ -1,0 +1,25 @@
+.footer {
+    height: 2.75rem; /* 60px */
+    padding-left: 1.5rem; /* var(--mantine-spacing-md) */
+    padding-right: 1.5rem; /* var(--mantine-spacing-md) */
+    border-bottom: 0.0625rem solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  }
+  
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2.5rem; /* было var(--mantine-spacing-xl) = 40px */
+    padding-bottom: 2.5rem; /* было var(--mantine-spacing-xl) = 40px */
+  
+    @media (max-width: var(--mantine-breakpoint-xs)) {
+      flex-direction: column;
+    }
+  }
+  
+  .links {
+    @media (max-width: var(--mantine-breakpoint-xs)) {
+      margin-top: 1.875rem; /* было var(--mantine-spacing-md) = 30px */
+    }
+  }
+  
