@@ -28,13 +28,14 @@ import {
     IconCoin,
     IconMap,
     IconChevronDown,
+    IconThumbUp,
   } from '@tabler/icons-react';
   import classes from './HeaderWelcomeStyle.module.css';
 import { Link } from 'react-router-dom';
   
   const mockdata = [
     {
-      icon: IconCode,
+      icon: IconThumbUp,
       title: 'Удобство использования',
       description: 'Мы поможем вам с выбором мероприятия, подскажем дату и место проведения, а также дадим в подарок баллы!',
     },
@@ -79,7 +80,7 @@ import { Link } from 'react-router-dom';
     ));
   
     return (
-      <Box pb={120}>
+      <Box pb={40}>
         <header className={classes.header}>
           <Group justify="space-between" h="100%">
             <Mantinelogo size={30} />
@@ -126,7 +127,7 @@ import { Link } from 'react-router-dom';
                           Присоединитесь к нам и начните жить по-новому!
                         </Text>
                       </div>
-                      <Link to={"/authentication"}><Button className={classes.button} variant="default">Начать</Button></Link>
+                      <Link to={"/authentication/register"}><Button className={classes.button} variant="default">Начать</Button></Link>
                     </Group>
                   </div>
                 </HoverCard.Dropdown>
@@ -140,8 +141,8 @@ import { Link } from 'react-router-dom';
             </Group>
   
             <Group visibleFrom="sm">
-              <Link to={"/authentication"}><Button className={classes.button} variant='default'>Войти</Button> </Link>
-              <Link to={"/authentication"}><Button className={classes.button2}>Зарегистрироваться</Button> </Link>
+              <Link to={"/authentication/login"}><Button variant='default'>Войти</Button> </Link>
+              <Link to={"/authentication/register"}><Button variant="filled" color="rgba(10, 10, 10, 1)">Зарегистрироваться</Button> </Link>
             </Group>
   
             <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />

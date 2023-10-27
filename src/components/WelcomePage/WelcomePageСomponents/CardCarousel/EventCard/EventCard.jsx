@@ -7,7 +7,7 @@ export default function EventCard({ image, title, category }) {
         shadow="md"
         p="xl"
         radius="md"
-        style={{ backgroundImage: `url(${image})` }}
+        style={{ backgroundImage: `url(${image[0]})` }}
         className={classes.card}
       >
         <div>

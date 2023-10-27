@@ -3,7 +3,6 @@ import classes from './ListCardStyle.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function ListCard({article}) {
-  console.log(article)
   return (
           <Card key= {uuidv4()} p="md" radius="md" component="a" href="#" className={classes.card}>
             <AspectRatio ratio={1920 / 1080}>

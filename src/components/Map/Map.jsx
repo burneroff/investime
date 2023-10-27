@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { GeolocationControl, YMaps, Map, Placemark } from 'react-yandex-maps';
+import { GeolocationControl, RouteButton, Map, Placemark } from 'react-yandex-maps';
 import { Button, Container, Input, Text } from '@mantine/core';
-
+import { dataAttraction } from '../../Consts/Consts';
 export default function MapWithIcon() {
-  const Address = [
-    "Минск",
-    "просп. Независимости, 54, Минск",
-    "Академическая ул., 5, Минск"
-  ];
 
-  const encodedAddress = Address.map((adr) => encodeURIComponent(adr));
+  const encodedAddress = dataAttraction.map((adr) => encodeURIComponent(adr.address));
   const [coords, setCoords] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -64,6 +59,7 @@ export default function MapWithIcon() {
           {coords.map((coord, index) => (
             <Placemark key={index} geometry={coord} options={{ preset: 'islands#redIcon' }} />
           ))}
+          <RouteButton></RouteButton>
           <GeolocationControl options={{ float: 'left' }} />
         </Map>
       </div>

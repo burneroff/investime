@@ -21,7 +21,7 @@ export default function ContactUs() {
         <div>
           <Title className={classes.title}>Свяжитесь с нами</Title>
           <Text className={classes.description} mt="sm" mb={30}>
-            Оставьте свой email и мы свяжимся с вами в течении суток.
+            Оставьте свой email и мы добавим вас на сайт в течении суток.
           </Text>
 
           <ContactIconsList />

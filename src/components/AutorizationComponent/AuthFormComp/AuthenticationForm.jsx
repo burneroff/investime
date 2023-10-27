@@ -14,10 +14,23 @@ import {
 } from '@mantine/core';
 import RumblerButton from '../RamblerButton';
 import SomethingButton from '../SomethingButton';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { api } from '../../../axiosConfig';
+import { useEffect, useContext} from 'react';
+import { AuthContext } from '../../../context/AuthContext';
 
 export default function AuthenticationForm(props) {
   const [type, toggle] = useToggle(['login', 'register']);
+  const navigate = useNavigate();
+  const { linkType } = useParams();
+  const { auth, setAuth } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (linkType === 'register') {
+      toggle();
+    }
+  }, [linkType, toggle]);
+
   const form = useForm({
     initialValues: {
       email: '',
@@ -33,17 +46,33 @@ export default function AuthenticationForm(props) {
 
   return (
     <Paper radius="md" padding="xl" {...props}>
-      <Text size="lg" weight={500}>
-        Welcome to Investime, {type} with
+      <Text ta={"center"}size="lg" weight={500}>
+        Welcome to <Text display={"inline"} c="rgb(79, 181, 69)">Investime</Text>
       </Text>
+      <form onSubmit={form.onSubmit(async () => {
+  try {
+    if (type === "login"){
+        const response = await api.post('/auth/login', {
+            email: form.values.email,
+            password: form.values.password,
+          });
 
-      <Group grow style={{ marginTop: '10px', marginBottom: "10px" }}>
-        <RumblerButton radius="xl">Войти</RumblerButton>
-      </Group>
-
-      <Divider label="Or continue with email" labelPosition="center" margin="lg" />
-
-      <form onSubmit={form.onSubmit(() => {})}>
+        setAuth({role:"Клиент", email: response.data.email, fio: response.data.fio});
+    }
+    else{
+        const response = await api.post('/auth/registration', {
+            email: form.values.email,
+            fio: form.values.name,
+            password: form.values.password,
+          });
+          setAuth({role:"Клиент", email: form.values.name, fio: form.values.name});
+    }
+    
+    navigate("/home");
+  } catch (error) {
+    console.error('Error:', error);
+  }
+})}>
         <Stack spacing="lg">
           {type === 'register' && (
             <TextInput
@@ -58,7 +87,7 @@ export default function AuthenticationForm(props) {
           <TextInput
             required
             label="Email"
-            placeholder="hello@mantine.dev"
+            placeholder="hello@investime.dev"
             value={form.values.email}
             onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
             error={form.errors.email && 'Invalid email'}
@@ -76,7 +105,7 @@ export default function AuthenticationForm(props) {
           />
 
           {type === 'register' && (
-            <Checkbox
+            <Checkbox color="rgb(79, 181, 69)"
               label="I accept terms and conditions"
               checked={form.values.terms}
               onChange={(event) => form.setFieldValue('terms', event.currentTarget.checked)}
@@ -85,14 +114,14 @@ export default function AuthenticationForm(props) {
         </Stack>
 
         <Group justify="space-between"  style={{ marginTop: '10px' }}>
-          <Anchor component="button" type="button" color="dimmed" onClick={() => toggle()} size="xs">
+          <Anchor component="button" type="button" c="rgb(79, 181, 69)" onClick={() => toggle()} size="xs">
             {type === 'register'
               ? 'Already have an account? Login'
               : "Don't have an account? Register"}
           </Anchor>
-          <Link to={"/home"}><Button type="submit" radius="xl">
+          <Button type="submit" radius="xl" color="rgb(79, 181, 69)">
             {upperFirst(type)}
-          </Button></Link>
+          </Button>
         </Group>
       </form>
     </Paper>

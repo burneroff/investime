@@ -1,5 +1,5 @@
 .header {
-    background-color: #4FB545;
+    background-color: var(--mantine-color-green-7);
     height: 3.75rem; /* 60px */
     padding-left: 1.5rem; /* var(--mantine-spacing-md) */
     padding-right: 1.5rem; /* var(--mantine-spacing-md) */

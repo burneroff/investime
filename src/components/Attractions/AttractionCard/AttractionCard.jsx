@@ -5,6 +5,7 @@ import { IconStar } from '@tabler/icons-react';
 import classes from './AttractionCardStyle.module.css'
 import '@mantine/carousel/styles.css';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 export default function AttractionCard({ data }) {
   const slides = data.images.map((img) => (
@@ -42,17 +43,9 @@ export default function AttractionCard({ data }) {
       </Text>
 
       <Group justify="space-between" mt="md">
-        <div>
-          <Text fz="xl" span fw={500} className={classes.price}>
-          {data.price}
-          </Text>
-          <Text span fz="sm" c="dimmed">
-            {' '}
-            / visit
-          </Text>
-        </div>
-
-        <Button radius="md">Book now</Button>
+        <Link to={"/home"}><Button variant="gradient"
+      gradient={{ from: 'blue', to: 'lime', deg: 255 }} radius="md">Посмотреть на карте</Button>
+        </Link>
       </Group>
     </Card>
   );

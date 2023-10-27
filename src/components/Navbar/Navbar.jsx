@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import { Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core';
 import {
-  IconHome2,
-  IconGauge,
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
-  IconCalendarStats,
   IconUser,
-  IconSettings,
   IconLogout,
-  IconSwitchHorizontal,
+  IconMap,
+  IconBalloon,
+  IconPhoto,
+  IconCoin,
 } from '@tabler/icons-react';
-import { MantineLogo } from '@mantine/ds';
 import classes from './NavbarStyle.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 function NavbarLink({ icon: Icon, label, active, onClick }) {
   return (
@@ -26,16 +23,24 @@ function NavbarLink({ icon: Icon, label, active, onClick }) {
 }
 
 const mockdata = [
-  { to: '/home', icon: IconHome2, label: 'Home' },
-  { to: '/events', icon: IconGauge, label: 'Events' },
-  { to: '/attractions', icon: IconDeviceDesktopAnalytics, label: 'Attractions' },
-  { to: '/shop', icon: IconCalendarStats, label: 'Shop' },
-  { to: '/profile', icon: IconUser, label: 'Profile' },
+  { to: '/home', icon: IconMap, label: 'Карта' },
+  { to: '/events', icon: IconBalloon, label: 'Мероприятия' },
+  { to: '/attractions', icon: IconPhoto, label: 'Достопримечательности' },
+  { to: '/shop', icon: IconCoin, label: 'Магазин' },
+  { to: '/profile', icon: IconUser, label: 'Профиль' },
 ];
 
 function NavbarMinimal() {
   const [active, setActive] = useState(0);
+  const { auth, setAuth } = useContext(AuthContext);
+  const navigate = useNavigate()
+  const exitHandler = () =>{
+    navigate("/welcome")
+    setAuth({ fio: null,
+      email: null,
+      role: null,})
 
+  }
   const links = mockdata.map((link, index) => (
     <Link to={link.to}>
     <NavbarLink
@@ -61,7 +66,7 @@ function NavbarMinimal() {
       </div>
 
       <Stack justify="center" gap={0}>
-      <Link to={"/welcome"}><NavbarLink icon={IconLogout} label="Logout" /></Link>
+      <NavbarLink icon={IconLogout} label="Выйти" onClick={exitHandler}/>
       </Stack>
     </nav>
   );

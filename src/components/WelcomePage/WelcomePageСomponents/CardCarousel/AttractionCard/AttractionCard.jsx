@@ -1,5 +1,6 @@
 import { Paper, Text, Title, Button} from '@mantine/core';
 import classes from '../CardCarouselStyle.module.css';
+import { Link } from 'react-router-dom';
 
 export default function AttractionCard({ image, title, category }) {
     return (
@@ -18,9 +19,9 @@ export default function AttractionCard({ image, title, category }) {
             {title}
           </Title>
         </div>
-        <Button variant="white" color="dark">
+        <Link to={"/home"}><Button variant="white" color="dark">
           Подробнее
-        </Button>
+        </Button> </Link>
       </Paper>
     );
   }

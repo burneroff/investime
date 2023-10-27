@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Dots({ size = 185, radius = 2.5, ...others }) {
+export default function HeroDots({ size = 185, radius = 2.5, ...others }) {
   return (
     <svg
       aria-hidden

@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MantineProvider, createTheme } from '@mantine/core';
 import '@mantine/core/styles.css';
+import { AuthProvider } from './context/AuthContext';
 
 const theme = createTheme({
   /** Put your mantine theme override here */
 });
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <MantineProvider theme={theme}>
-    <App />
-  </MantineProvider>
+  <AuthProvider>
+    <MantineProvider theme={theme}>
+      <App />
+    </MantineProvider>
+  </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
