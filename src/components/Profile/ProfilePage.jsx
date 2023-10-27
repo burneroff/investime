@@ -18,9 +18,6 @@ export default function ProfilePage() {
     </Grid>
     <Grid gutter="lg" align='center'>
         <Grid.Col>
-            
-        </Grid.Col>
-        <Grid.Col>
             <Card>
                 <Title order={2} mb={20}> Достижения</Title>
                 <AchivesBox />

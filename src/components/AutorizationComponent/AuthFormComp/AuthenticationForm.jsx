@@ -52,19 +52,20 @@ export default function AuthenticationForm(props) {
       <form onSubmit={form.onSubmit(async () => {
   try {
     if (type === "login"){
-        const response = await api.post('/auth/login', {
-            email: form.values.email,
-            password: form.values.password,
-          });
+        // const response = await api.post('/auth/login', {
+        //     email: form.values.email,
+        //     password: form.values.password,
+        //   });
 
-        setAuth({role:"Клиент", email: response.data.email, fio: response.data.fio});
+        // setAuth({role:"Клиент", email: response.data.email, fio: response.data.fio});
+          setAuth({role:"Клиент", email: "dev@email.com", fio: "CentrBank"});
     }
     else{
-        const response = await api.post('/auth/registration', {
-            email: form.values.email,
-            fio: form.values.name,
-            password: form.values.password,
-          });
+        // const response = await api.post('/auth/registration', {
+        //     email: form.values.email,
+        //     fio: form.values.name,
+        //     password: form.values.password,
+        //   });
           setAuth({role:"Клиент", email: form.values.name, fio: form.values.name});
     }
     

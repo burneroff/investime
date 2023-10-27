@@ -2,14 +2,14 @@ import { Text, Card, RingProgress, Group, useMantineTheme } from '@mantine/core'
 import classes from './AchiveStatistic.module.css';
 
 const stats = [
-  { value: 447, label: 'Remaining' },
-  { value: 76, label: 'In progress' },
+  { value: 26, label: 'Осталось' },
+  { value: 2, label: 'В процессе' },
 ];
 
 export default function AchiveStatistic() {
   const theme = useMantineTheme();
   const completed = 4;
-  const total = 30;
+  const total = 32;
   const items = stats.map((stat) => (
     <div key={stat.label}>
       <Text className={classes.label}>{stat.value}</Text>
@@ -20,18 +20,18 @@ export default function AchiveStatistic() {
   ));
 
   return (
-    <Card withBorder p="xl" radius="md" m={20} className={classes.card}>
+    <Card withBorder p="xl" radius="md" m={20} mt={30} className={classes.card}>
       <div className={classes.inner}>
         <div>
-          <Text fz="xl" className={classes.label}>
-            Project tasks
+          <Text fz="xl" className={classes.label} >
+            Достижения
           </Text>
           <div>
             <Text className={classes.lead} mt={30}>
               {completed}
             </Text>
             <Text fz="xs" c="dimmed">
-              Completed
+              Сделаны
             </Text>
           </div>
           <Group mt="lg">{items}</Group>

@@ -49,10 +49,10 @@ function ImageCheckbox({
 }
 
 const mockdata = [
-  { description: 'Sun and sea', title: 'Beach vacation', image: iconsSmall.sea },
-  { description: 'Sightseeing', title: 'City trips', image: iconsSmall.city },
-  { description: 'Mountains', title: 'Hiking vacation', image: iconsSmall.mountain },
-  { description: 'Snow and ice', title: 'Winter vacation', image: iconsSmall.winter },
+  { description: 'Достижение', title: 'Посетить пляж', image: iconsSmall.sea },
+  { description: 'Достижение', title: 'Погулять по городу', image: iconsSmall.city },
+  { description: 'Достижение', title: 'Увидеть горы', image: iconsSmall.mountain },
+  { description: 'Достижение', title: 'К зиме готов!', image: iconsSmall.winter },
 ];
 
 console.log(mockdata)

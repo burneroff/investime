@@ -30,23 +30,6 @@ export default function AchiveCard() {
       <Card.Section>
         <AvatarSection></AvatarSection>
       </Card.Section>
-      <Card.Section className={classes.section}>
-        <Text mt="md" className={classes.label} c="dimmed">
-          Perfect for you, if you enjoy
-        </Text>
-        <Group gap={7} mt={5}>
-          {features}
-        </Group>
-      </Card.Section>
-
-      <Group mt="xs">
-        <Button color="rgb(79, 181, 69)" radius="md" style={{ flex: 1 }}>
-          Подробнее
-        </Button>
-        <ActionIcon  variant="default" radius="md" size={36}>
-          <IconHeart className={classes.like} stroke={1.5} />
-        </ActionIcon>
-      </Group>
     </Card>
   );
 }
